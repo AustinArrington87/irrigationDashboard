@@ -34,6 +34,10 @@ kingsland = weather(40.734871, -73.943382)
 # irrigation rec - season inputs
 currentMonth = datetime.datetime.now().month
 
+if int(currentMonth) >= 8:
+    currentRec = "15 mins every 24 hrs"
+else:
+    currentRec = "20 mins every 48 hrs"
 
 # Create your views here.
 def index(request):
@@ -96,7 +100,7 @@ def index(request):
         'sm_avg': sm_avg,
         'sm_current': sm_current,
         'sm_status': sm_status,
-        'current_month': currentMonth
+        'current_rec': currentRec
         
     }
     
