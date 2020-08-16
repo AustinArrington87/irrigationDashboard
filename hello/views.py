@@ -54,6 +54,12 @@ def index(request):
     plantProfile = {'build_type': 'Green Roof', 'water_type': 'Drought Tolerant'}
     fc = 14
     pwp = 5
+    
+    if sm_current <= pwp+1:
+        sm_status = "Low soil moisture, consider irrigating."
+    else:
+        sm_status = "Continue with current irrigation schedule."
+    
     ## irrigation rec
     if sm_avg >= fc and precipProb < 0.80:
         hours = "36 to 48"
@@ -84,7 +90,8 @@ def index(request):
         'plantProfile': plantProfile,
         'hours': hours,
         'sm_avg': sm_avg,
-        'sm_current': sm_current
+        'sm_current': sm_current,
+        'sm_status': sm_status
         
     }
     
