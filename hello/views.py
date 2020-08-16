@@ -19,7 +19,7 @@ for i in sm_data:
 
 sm_avg = round(statistics.mean(sm_list),2)
 # last element in list
-sm_current = sm_data[-1]['field1']
+sm_current = int(sm_data[-1]['field1'])
 
 # darkSky Data
 apikey = "4220aeb6ebb11c7abd00a31ae35cab06"
