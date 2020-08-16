@@ -31,6 +31,10 @@ def weather(latitude, longitude):
 
 kingsland = weather(40.734871, -73.943382) 
 
+# irrigation rec - season inputs
+currentMonth = datetime.datetime.now().month
+
+
 # Create your views here.
 def index(request):
     # return HttpResponse('Hello from Python!')
@@ -91,7 +95,8 @@ def index(request):
         'hours': hours,
         'sm_avg': sm_avg,
         'sm_current': sm_current,
-        'sm_status': sm_status
+        'sm_status': sm_status,
+        'current_month': currentMonth
         
     }
     
