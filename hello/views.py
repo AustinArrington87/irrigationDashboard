@@ -18,6 +18,8 @@ for i in sm_data:
     sm_list.append(int(i['field1']))
 
 sm_avg = round(statistics.mean(sm_list),2)
+# last element in list
+sm_current = sm_data[-1]['field1']
 
 # darkSky Data
 apikey = "4220aeb6ebb11c7abd00a31ae35cab06"
@@ -81,7 +83,8 @@ def index(request):
         'pwp': pwp,
         'plantProfile': plantProfile,
         'hours': hours,
-        'sm_avg': sm_avg
+        'sm_avg': sm_avg,
+        'sm_current': sm_current
         
     }
     
