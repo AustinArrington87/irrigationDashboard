@@ -11,7 +11,7 @@ import json
 import statistics
 
 # soil moisture sensor data - last 24 hrs
-request = urllib.request.urlopen("https://api.thingspeak.com/channels/180968/feeds.json?results=24")
+request = urllib.request.urlopen("https://api.thingspeak.com/channels/180968/feeds.json?results=12")
 sm_data = json.load(request)['feeds']
 sm_list = []
 for i in sm_data:
