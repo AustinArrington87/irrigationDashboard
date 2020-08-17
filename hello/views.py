@@ -70,13 +70,13 @@ def index(request):
     
     ## irrigation rec
     if sm_avg >= fc and precipProb < 0.80:
-        hours = "36 to 48"
+        hours = "24 to 36"
     elif sm_avg >= fc and precipProb >= 0.80:
-        hours = "48 to 60"
+        hours = "36 to 48"
     elif sm_avg < fc and precipProb < 0.80:
-        hours = "0 to 12"
-    elif sm_avg < fc and precipProb >= 0.80:
         hours = "12 to 24"
+    elif sm_avg < fc and precipProb >= 0.80:
+        hours = "24 to 36"
     elif sm_avg <= pwp+1:
         hours = "0 to 6"
     else:
