@@ -63,7 +63,7 @@ def index(request):
     fc = 14
     pwp = 5
     
-    if sm_current <= pwp+1:
+    if sm_avg <= pwp+1:
         sm_status = "Low soil moisture, consider irrigating."
     else:
         sm_status = "Continue with current irrigation schedule."
