@@ -60,7 +60,6 @@
     
     <p>Based on your plant profile, soil type, and precipitation probability, we recommend watering within the next {{ hours }} hours.</p>
     
-      <p style="background-color:006400;">{{ sm_status }}</p>
       
     <div align="center">
     <table>
@@ -99,8 +98,7 @@
       
       <br><br>
       
-    <p>Irrigation Timer Rec: {{ current_rec }}</p>
-      <p> {{ current_month }}</p>
+    <p>Irrigation Timer Rec: {{ sm_status }}</p>
       
     <a type="button" class="btn btn-lg btn-default" target="_blank" href="https://thingspeak.com/channels/180968"><span class="glyphicon glyphicon-flash"></span> Download Data</a>
     <a type="button" class="btn btn-lg btn-primary" target="_blank" href="https://github.com/AustinArrington87/irrigationDashboard"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>

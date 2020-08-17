@@ -64,9 +64,9 @@ def index(request):
     pwp = 5
     
     if sm_avg <= pwp+1:
-        sm_status = "Low soil moisture, consider irrigating."
+        sm_status = "Low soil moisture alert, consider irrigating."
     else:
-        sm_status = "Continue with current irrigation schedule."
+        sm_status = currentRec
     
     ## irrigation rec
     if sm_avg >= fc and precipProb < 0.80:
