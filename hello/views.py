@@ -11,6 +11,7 @@ import json
 import statistics
 
 # soil moisture sensor data - last 24 hrs
+# Hint: Enter your Thingspeak Channel ID into the URL https://thingspeak.com/channels/180968
 request = urllib.request.urlopen("https://api.thingspeak.com/channels/180968/feeds.json?results=12")
 sm_data = json.load(request)['feeds']
 sm_list = []
@@ -22,7 +23,7 @@ sm_avg = round(statistics.mean(sm_list),2)
 sm_current = int(sm_data[-1]['field1'])
 
 # darkSky Data - alive structures photon 
-apikey = "4220aeb6ebb11c7abd00a31ae35cab06"
+apikey = "Enter_DarkSky_api_Key"
 # enter US GeoZone - east coast; Kingsland Wildflowers
 geoZone = "US_East"
 #irrigationType
