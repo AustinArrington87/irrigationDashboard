@@ -21,8 +21,12 @@ sm_avg = round(statistics.mean(sm_list),2)
 # last element in list
 sm_current = int(sm_data[-1]['field1'])
 
-# darkSky Data
+# darkSky Data - alive structures photon 
 apikey = "4220aeb6ebb11c7abd00a31ae35cab06"
+# enter US GeoZone - east coast; Kingsland Wildflowers
+geoZone = "US_East"
+#irrigationType
+irrigType = "drip"
 
 def weather(latitude, longitude):
     LOCATION = latitude, longitude
@@ -34,14 +38,15 @@ kingsland = weather(40.734871, -73.943382)
 # irrigation rec - season inputs
 currentMonth = datetime.datetime.now().month
 
-if int(currentMonth) >= 8:
+if int(currentMonth) >= 8 and int(currentMonth) < 10 and irrigType == "drip":
     currentRec = "15 mins every 24 hrs"
+elif int(currentMonth) > 10 and geoZone == "US_East" and irrigType == "drip":
+    currentRec = " Time to winterize your system ... "
 else:
     currentRec = "20 mins every 48 hrs"
 
 # Create your views here.
 def index(request):
-    # return HttpResponse('Hello from Python!')
     person={'firstname': 'Kingsland', 'lastname': 'Wildflowers'}
     #time = kingsland['time']
     #time = datetime.datetime.utcfromtimestamp(time)
