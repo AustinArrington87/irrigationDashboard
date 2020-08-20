@@ -52,16 +52,12 @@
 <h2>Soil Moisture</h2>
     <!--Soil Moisture Sensor-->  
       <!--TS Graph-->
-    <br><br>
+    <br>
   <iframe width="480" height="220" src="https://thingspeak.com/channels/180968/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&max=100&min=0&results=36&type=line"></iframe>
       <br><br>
-    <!--Irrigation--Rec-->
-      <h3>12-hr Avg Soil Moisture: {{ sm_avg }} %</h3>
-    
-    <p>Based on your plant profile, soil type, and precipitation probability, we recommend watering within the next {{ hours }} hours.</p>
-    
       
-    <div align="center">
+    <!--SM Stats-->
+      <div align="center">
     <table>
         <tr>
             <th>Value</th>
@@ -96,7 +92,41 @@
     </table>
     </div>
       
-      <br><br>
+      <!--pET-->
+      
+      <h3>12-hr Avg Soil Moisture: {{ sm_avg }} %</h3>
+      <h3>pET (in/day): {{ pET }}</h3>
+      <br>
+      <!-- Modal -->
+<div class="container">
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Learn More</button>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <p class="modal-title">About Soil Moisture</p>
+        </div>
+        <div class="modal-body">
+            <p>The "12-hr Avg Soil Moisture" value shows the average <a href="https://www.vegetronix.com/TechInfo/How-To-Measure-VWC.phtml#:~:text=Volumetric%20water%20content%20is%20a,measures%20weight%20rather%20than%20volume." target="_blank">volumetric water content (VWC%) </a>from your soil moisture sensor.</p>
+            <p>pET is your potential evapotranspiration, or the moisture lost in inches per day from your planted surface. This is calculated using the <a href="http://www.fao.org/3/X0490E/x0490e06.htm#:~:text=In%201948%2C%20Penman%20combined%20the,temperature%2C%20humidity%20and%20wind%20speed." target="_blank">FAO Penman-Monteith Eq.</a> Imagine 0.25 inches of water have been lost. You'd be able to fill that amount of lost water by irrigation for about 15 mins (assuming 0.5 gallon per hour emitter rate).</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+      
+    <!--Irrigation--Rec-->
+    <h2>Irrigation Recommendation</h2>
+    <p>Based on your plant profile, soil type, and precipitation probability, we recommend watering within the next {{ hours }} hours.</p>
       
     <p>Irrigation Timer Rec: {{ sm_status }}</p>
       
