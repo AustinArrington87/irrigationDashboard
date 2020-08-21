@@ -17,7 +17,7 @@ from pysolar.solar import *
 from pysolar.radiation import *
 
 # soil moisture sensor data - last 24 hrs
-request = urllib.request.urlopen("https://api.thingspeak.com/channels/Your_Channel_ID/feeds.json?results=12")
+request = urllib.request.urlopen("https://api.thingspeak.com/channels/180968/feeds.json?results=12")
 sm_data = json.load(request)['feeds']
 sm_list = []
 for i in sm_data:
@@ -28,7 +28,7 @@ sm_avg = round(statistics.mean(sm_list),2)
 sm_current = int(sm_data[-1]['field1'])
 
 # darkSky Data - alive structures photon 
-apikey = "Your_DS_apiKey"
+apikey = "4220aeb6ebb11c7abd00a31ae35cab06"
 # enter US GeoZone - east coast; Kingsland Wildflowers
 geoZone = "US_East"
 #irrigationType
@@ -208,9 +208,11 @@ try:
     penmanMont = round(fao56_penman_monteith(dailyNetRadiation, tempK, windAvg, satVapor, vaporPressure, satVaporSlope, psychoConstant, shf=0.0),2)
     # convert from mm/day to in/day
     pET = round((penmanMont * 0.0393701),4)
+    # amount of time to irrigate for (minutes)
+    irrigationTime = int(pET/0.01667 + 1.5)
 except:
     pET = None
-
+    irrigationTime = None
 ################################
 
 # irrigation rec - season inputs
@@ -279,7 +281,8 @@ def index(request):
         'sm_current': sm_current,
         'sm_status': sm_status,
         'current_rec': currentRec,
-        'pET': pET
+        'pET': pET,
+        'irrigationTime': irrigationTime
         
     }
     
