@@ -209,7 +209,7 @@ try:
     # convert from mm/day to in/day
     pET = round((penmanMont * 0.0393701),4)
     # amount of time to irrigate for (minutes)
-    irrigationTime = int(pET/0.01667 + 1.5)
+    irrigationTime = int(pET/0.01667 + 0.5)
 except:
     pET = None
     irrigationTime = None
