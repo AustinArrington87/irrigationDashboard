@@ -1,3 +1,4 @@
+#  Copyright (c) 2020 PLANT Group, LLC
 from django.shortcuts import render
 from django.http import HttpResponse
 
